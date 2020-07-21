@@ -19,24 +19,32 @@ public class BannerViewPager extends ViewPager {
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-        if(this.scrollable) {
-            if (getCurrentItem() == 0 && getChildCount() == 0) {
+        try {
+            if (this.scrollable) {
+                if (getCurrentItem() == 0 && getChildCount() == 0) {
+                    return false;
+                }
+                return super.onTouchEvent(ev);
+            } else {
                 return false;
             }
-            return super.onTouchEvent(ev);
-        } else {
+        } catch (Exception e) {
             return false;
         }
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        if(this.scrollable) {
-            if (getCurrentItem() == 0 && getChildCount() == 0) {
+        try {
+            if (this.scrollable) {
+                if (getCurrentItem() == 0 && getChildCount() == 0) {
+                    return false;
+                }
+                return super.onInterceptTouchEvent(ev);
+            } else {
                 return false;
             }
-            return super.onInterceptTouchEvent(ev);
-        } else {
+        } catch (Exception e) {
             return false;
         }
     }
