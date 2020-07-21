@@ -504,12 +504,13 @@ public class Banner extends FrameLayout implements OnPageChangeListener {
      * @return 下标从0开始
      */
     public int toRealPosition(int position) {
-        int realPosition;
-        if(count!=0){
+        int realPosition = 0;
+        if (count != 0) {
             realPosition = (position - 1) % count;
         }
-        if (realPosition < 0)
+        if (realPosition < 0) {
             realPosition += count;
+        }
         return realPosition;
     }
 
